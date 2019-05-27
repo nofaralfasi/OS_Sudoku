@@ -1,28 +1,31 @@
 # OS_Sudoku
 
-A multi process sudoku checking program.
-The app's purpose is to decide if a given matrix is valid sudoku solution.
+A multi process Sudoku checking program.
+The program's main purpose is to check if a given matrix is a valid Sudoku solution.
 
 ## Instructions:
-To run with gcc compiler:
 
-Open linux terminal in the relevant directory.
+(Using gcc compiler to run the code)
 
-To compile the Makefile run the command: make -f Makefile.mak
+1. Open linux terminal on the main directory.
 
-To execute the Sudoku program run the command: ./v1 [filname] (optional - a text file with a sudoku matrix)
+2. To execute the Makefile run the command: make -f Makefile.mak
 
-If no file is given: The program reads the Sudoku matrix from standard input on terminal.
+This command compiles the relevant .c files and creates executable files of the program.
+
+3. To execute the Sudoku program run the command: ./executable_file [text_file] (optional - a text file with a Sudoku matrix)
+
+If no text file is given: The program reads the Sudoku matrix from the user in the terminal.
 
 ## Implementations
 ### Pipes Execvp
-Uses 3 child processes and a pipe for each one to send them the data, execvp to run another app on each one.
+Uses three child processes each one has a to send the data. The processes use 'execvp' to call another process to run.
 
 ### Shared Memory
-Uses 3 child processes and a shared memory.
+Uses three child processes and on a shared memory.
 
 ### Multi Threads
-Uses 3 threads. Each one is responsible for a different part.
+Each thread is responsible for checking different elements of the Sudoku matrix (rows, columns and sub-matrices).
 
 ### Threads with Mutex
-Uses 3 threads which are responsible for the whole test, have access to the same data. Synchronization was taken care with mutex and condition variable.
+All threads have access to the same data. Synchronization is made by using 'mutex' and condition variable.
